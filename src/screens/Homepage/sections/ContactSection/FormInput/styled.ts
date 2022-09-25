@@ -14,7 +14,8 @@ export const Components = {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid ${COLORS.textColor};
-    margin: 25px 0;
+    margin-top: 25px;
+    margin-bottom: 2px;
     background-color: ${COLORS.secondary};
 
 
@@ -40,5 +41,9 @@ export const Components = {
       top: -14px;
       font-size: 12px;
     }
+  `,
+  Error: styled.div`
+    font-size: 12px;
+    color: red;
   `,
 };

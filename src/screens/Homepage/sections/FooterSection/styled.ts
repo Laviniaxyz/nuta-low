@@ -31,7 +31,7 @@ export const Components = {
     }
   `,
   WebsiteRights: styled.h5`
-    color: ${COLORS.backgroundColor};
+    color: ${COLORS.whiteBeige};
     font-size: 14px;
   `,
 
@@ -43,7 +43,7 @@ export const Components = {
   `,
 
   SocialIconLink: styled.a`
-    color: ${COLORS.backgroundColor};
+    color: ${COLORS.whiteBeige};
 
     &:hover {
       opacity: 0.7;

@@ -6,7 +6,7 @@ export const Components = {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 600px;
     position: relative;
     z-index: 1;
     :before {
@@ -48,7 +48,7 @@ export const Components = {
     padding: 80px;
   `,
   HeroH1: styled.h1`
-    color: ${COLORS.backgroundColor};
+    color: ${COLORS.whiteBeige};
     font-size: 48px;
     text-align: center;
     @media screen and (max-width: 768px) {

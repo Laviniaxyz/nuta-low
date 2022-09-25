@@ -1,7 +1,9 @@
 export const COLORS = {
-  backgroundColor: '#f9f4ef',
+  whiteBeige: '#f9f4ef',
+  white: '#FFFFFF',
   textColor: '#716040',
-  buttonColor: '#8c7851',
+  darkBrown: '#8c7851',
   secondary: '#eaddcf',
   lightBrown: '#eaddcf',
+  blueishBlack: '#020826',
 };

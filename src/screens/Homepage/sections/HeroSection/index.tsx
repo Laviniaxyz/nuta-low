@@ -5,7 +5,7 @@ import { COLORS } from '../../../../styled';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const video = require('./video/video-lawyer.mp4');
+const video = require('../../../../assets//video/video-lawyer.mp4');
 
 const HeroSection = () => {
   return (
@@ -14,10 +14,10 @@ const HeroSection = () => {
         <Components.VideoBg autoPlay loop muted src={video} />
       </Components.HeroBg>
       <Components.HeroContent>
-        <Components.HeroH1>Servicii juridice și consultanță fiscală</Components.HeroH1>
+        <Components.HeroH1>Litigii și consultanță juridică</Components.HeroH1>
         <Button
           sx={{
-            'backgroundColor': COLORS.buttonColor,
+            'backgroundColor': COLORS.darkBrown,
             'justify-content': 'center',
             'padding': 2,
             'align-items': 'center',

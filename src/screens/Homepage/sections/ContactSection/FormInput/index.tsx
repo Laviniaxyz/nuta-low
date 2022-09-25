@@ -1,11 +1,12 @@
 import React from 'react';
 import { Components } from './styled';
 
-const FormInput = ({ label, ...otherPros }: { label: string }) => {
+const FormInput = ({ label, placeholder, err, ...otherPros }: { label: string; placeholder: string; err: string }) => {
   return (
     <Components.Container>
-      <Components.Input {...otherPros} />
       <Components.Label>{label}</Components.Label>
+      <Components.Input {...otherPros} placeholder={placeholder} />
+      <Components.Error>{err}</Components.Error>
     </Components.Container>
   );
 };

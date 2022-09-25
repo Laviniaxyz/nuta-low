@@ -7,32 +7,48 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import SecurityIcon from '@mui/icons-material/Security';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import EscalatorWarningIcon from '@mui/icons-material/EscalatorWarning';
-import AssistWalkerIcon from '@mui/icons-material/AssistWalker';
+import CarCrashIcon from '@mui/icons-material/CarCrash';
+import { COLORS } from '../../../../../styled';
+import { IconType } from '../index';
 
-const getIcon = (icon: string) => {
+const getIcon = (icon: IconType) => {
   switch (icon) {
     case 'commercial':
-      return <StoreIcon fontSize={'large'} />;
+      return <StoreIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'work':
-      return <EngineeringIcon fontSize={'large'} />;
+      return <EngineeringIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'migration':
-      return <FlightTakeoffIcon fontSize={'large'} />;
+      return <FlightTakeoffIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'ensurance':
-      return <AssistWalkerIcon fontSize={'large'} />;
+      return <CarCrashIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'real-estate':
-      return <ApartmentIcon fontSize={'large'} />;
+      return <ApartmentIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'gdpr':
-      return <SecurityIcon fontSize={'large'} />;
+      return <SecurityIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'money':
-      return <AccountBalanceWalletIcon fontSize={'large'} />;
+      return <AccountBalanceWalletIcon fontSize={'large'} style={{ color: COLORS.white }} />;
     case 'civil':
-      return <EscalatorWarningIcon fontSize={'large'} />;
+      return <EscalatorWarningIcon fontSize={'large'} style={{ color: COLORS.white }} />;
   }
 };
 
-const ServiceCard = ({ title, icon }: { title: string; icon: string }) => {
+const ServiceCard = ({
+  title,
+  icon,
+  blackBg,
+  tabletBg,
+  mobileBg,
+  onClick,
+}: {
+  title: string;
+  icon: IconType;
+  blackBg?: boolean;
+  tabletBg?: boolean;
+  mobileBg?: boolean;
+  onClick: (icon: IconType) => void;
+}) => {
   return (
-    <Components.ServicesCard>
+    <Components.ServicesCard blackBg={blackBg} tabletBg={tabletBg} mobileBg={mobileBg} onClick={() => onClick(icon)}>
       {getIcon(icon)}
       <Components.ServicesH2>{title}</Components.ServicesH2>
     </Components.ServicesCard>

@@ -24,6 +24,9 @@ export const Components = {
   ContactForm: styled.div`
     display: flex;
     flex: 1;
+    margin: 32px;
+    justify-content: center;
+    flex-direction: column;
   `,
   EmailWrapper: styled.div``,
   EmailText: styled.div`
@@ -83,5 +86,18 @@ export const Components = {
     object-fit: cover;
     box-shadow: 0 0px 1px 1px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+  `,
+  Message: styled.div`
+    color: ${COLORS.textColor};
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 4px;
+  `,
+  MessageWrapper: styled.div`
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
   `,
 };
