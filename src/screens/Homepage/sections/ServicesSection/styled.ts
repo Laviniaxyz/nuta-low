@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from '../../../../styled';
+import { Carousel } from 'react-responsive-carousel';
 
 export const Components = {
   ServicesContainer: styled.div`

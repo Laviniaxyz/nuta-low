@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Components } from './styled';
 import { Button } from '@mui/material';
 import { COLORS } from '../../../../styled';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { SiteLanguageContext } from '../../../../providers/siteLanguage/context';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const video = require('../../../../assets//video/video-lawyer.mp4');
 
 const HeroSection = () => {
+  const { isRo } = useContext(SiteLanguageContext);
+
   return (
     <Components.HeroSectionContainer>
       <Components.HeroBg>
         <Components.VideoBg autoPlay loop muted src={video} />
       </Components.HeroBg>
       <Components.HeroContent>
-        <Components.HeroH1>Litigii și consultanță juridică</Components.HeroH1>
+        <Components.HeroH1>
+          {isRo ? ' Litigii și consultanță juridică' : 'Litigation and legal consultancy'}
+        </Components.HeroH1>
         <Button
           sx={{
             'backgroundColor': COLORS.darkBrown,
@@ -27,7 +32,16 @@ const HeroSection = () => {
             },
           }}
           variant='contained'>
-          Vezi detalii <KeyboardDoubleArrowRightIcon fontSize={'small'} />
+          <Components.HeroButtonText
+            to='services'
+            smooth={true}
+            duration={500}
+            spy={true}
+            offset={-10}
+            activeClass='active'>
+            {isRo ? 'Vezi detalii' : 'See more'}
+          </Components.HeroButtonText>
+          <KeyboardDoubleArrowRightIcon fontSize={'small'} />
         </Button>
       </Components.HeroContent>
     </Components.HeroSectionContainer>

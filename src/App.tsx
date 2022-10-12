@@ -1,9 +1,14 @@
 import React from 'react';
 import './App.css';
 import Homepage from './screens/Homepage';
+import SiteLanguageProvider from './providers/siteLanguage';
 
 function App() {
-  return <Homepage />;
+  return (
+    <SiteLanguageProvider>
+      <Homepage />
+    </SiteLanguageProvider>
+  );
 }
 
 export default App;

@@ -8,7 +8,7 @@ export const Components = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 140px;
+    height: 160px;
     padding: 30px;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease-in-out;
@@ -28,8 +28,11 @@ export const Components = {
     @media screen and (max-width: 850px) {
       background-color: ${(p) => (p.tabletBg ? 'black' : 'gray')};
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 501px) {
       background-color: ${(p) => (p.mobileBg ? 'black' : 'gray')};
+    }
+    @media screen and (max-width: 500px) {
+      background-color: ${(p) => (p.blackBg ? 'black' : 'gray')};
     }
   `,
   ServicesH2: styled.h2`

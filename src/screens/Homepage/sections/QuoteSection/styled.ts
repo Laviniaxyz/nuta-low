@@ -12,7 +12,7 @@ export const Components = {
     }
 
     @media screen and (max-width: 500px) {
-      padding: 24px;
+      padding: 12px;
     }
   `,
   QuoteBox: styled.div`
@@ -20,6 +20,10 @@ export const Components = {
     padding: 32px;
     background-color: ${COLORS.darkBrown};
     border-radius: 8px;
+
+    @media screen and (max-width: 500px) {
+      padding: 16px;
+    }
   `,
   QuoteTitle: styled.div`
     line-height: 1.8;

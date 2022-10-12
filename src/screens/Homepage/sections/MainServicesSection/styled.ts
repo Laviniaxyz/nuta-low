@@ -40,6 +40,11 @@ export const Components = {
     color: ${COLORS.white};
     cursor: pointer;
 
+    @media screen and (min-width: 500px) and (max-width: 700px) {
+      grid-template-columns: 1fr;
+      min-height: 450px;
+    }
+
     :hover {
       background-color: black;
     }

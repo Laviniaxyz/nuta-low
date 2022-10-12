@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from '../../../../styled';
+import { Link as LinkS } from 'react-scroll';
 
 export const Components = {
   HeroSectionContainer: styled.div`
@@ -58,4 +59,5 @@ export const Components = {
       font-size: 32px;
     }
   `,
+  HeroButtonText: styled(LinkS)``,
 };

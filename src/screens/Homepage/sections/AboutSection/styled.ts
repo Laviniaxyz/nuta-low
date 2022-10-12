@@ -10,12 +10,20 @@ export const Components = {
     @media screen and (max-width: 700px) {
       padding: 24px 32px;
     }
+
+    @media screen and (max-width: 500px) {
+      padding: 16px;
+    }
   `,
   QuoteBox: styled.div`
     margin: 16px;
     padding: 32px;
     background-color: ${COLORS.darkBrown};
     border-radius: 8px;
+
+    @media screen and (max-width: 500px) {
+      padding: 12px;
+    }
   `,
   QuoteTitle: styled.div`
     line-height: 2;

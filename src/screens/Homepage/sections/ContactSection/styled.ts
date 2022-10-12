@@ -29,31 +29,37 @@ export const Components = {
     flex-direction: column;
   `,
   EmailWrapper: styled.div``,
-  EmailText: styled.div`
+  Text: styled.div`
     text-align: center;
     font-size: 22px;
     font-family: Open Sans;
-    padding-left: 8px;
+    cursor: pointer;
   `,
-  PhoneText: styled.div`
-    text-align: center;
-    font-size: 22px;
-    font-family: Open Sans;
-    padding-left: 8px;
-  `,
+
   TextWrapper: styled.div`
     display: flex;
     align-items: center;
     background-color: ${COLORS.secondary};
     z-index: 1;
+    padding: 4px;
+    border-radius: 2px;
   `,
-
-  Form: styled.form`
+  CTAWrapper: styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1;
-    padding: 50px;
+    align-items: center;
+    background-color: ${COLORS.secondary};
+    z-index: 1;
+    margin-bottom: 48px;
+    padding: 4px 24px;
+    border-radius: 4px;
   `,
+  CTAText: styled.div`
+    text-align: center;
+    font-size: 24px;
+    font-family: Open Sans;
+  `,
+
   TextArea: styled.textarea`
     color: ${COLORS.textColor};
     font-size: 18px;
