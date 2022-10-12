@@ -10,9 +10,10 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined';
 import { SiteLanguageContext } from '../../../../providers/siteLanguage/context';
 import emailjs from '@emailjs/browser';
+import CircularIndeterminate from '../../../../components/CircularIndeterminate';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const image = require('../../../../assets/BooksImage.jpg');
+const image = require('../../../../assets/BooksImage.png');
 
 const ContactSection = () => {
   const { isRo } = useContext(SiteLanguageContext);
@@ -31,13 +32,13 @@ const ContactSection = () => {
 
   const [showSuccessSend, setShowSuccessSend] = useState(false);
   const [showAPIErr, setShowAPIErr] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onChangeName = (e: any) => {
     setName(e.target.value);
     setShowNameErr(false);
     setNameErr('');
   };
-  console.log(name, 'name ourside');
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value);
@@ -111,6 +112,7 @@ const ContactSection = () => {
     if (isErr) {
       return;
     } else {
+      setIsLoading(true);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       emailjs
@@ -118,10 +120,12 @@ const ContactSection = () => {
         .then(
           (result) => {
             setShowSuccessSend(true);
+            setIsLoading(false);
           },
           (error) => {
             console.log(error.text);
             setShowAPIErr(true);
+            setIsLoading(false);
           },
         );
     }
@@ -141,7 +145,9 @@ const ContactSection = () => {
           <>
             <Components.TextWrapper>
               <PhoneInTalkIcon />
-              <Components.Text>+40722697542</Components.Text>
+              <Components.Text>
+                <Components.TextHref href='tel:+40722697542'> +40722697542</Components.TextHref>
+              </Components.Text>
             </Components.TextWrapper>
             <Components.TextWrapper>
               <MailIcon />
@@ -181,81 +187,83 @@ const ContactSection = () => {
                   marginBottom: 2,
                 },
               }}
-              autoComplete='off'
               noValidate>
-              <form>
-                <TextField
-                  error={showNameErr}
-                  id='standard-error-helper-text'
-                  label={isRo ? 'Nume și prenume' : 'Name'}
-                  defaultValue={name}
-                  helperText={nameErrMessage}
-                  variant='standard'
-                  type={'text'}
-                  name='user_name'
-                  onChange={onChangeName}
-                  autoComplete='off'
-                />
-                <TextField
-                  error={showPhoneErr}
-                  id='standard-error-helper-text'
-                  label={isRo ? 'Telefon' : 'Phone number'}
-                  defaultValue={phoneNumber}
-                  helperText={phoneErrMessage}
-                  variant='standard'
-                  onChange={onChangePhone}
-                  name='user_phone'
-                  autoComplete='off'
-                />
-                <TextField
-                  error={showEmailErr}
-                  id='standard-error-helper-text'
-                  label='Email'
-                  defaultValue={email}
-                  helperText={emailErrMessage}
-                  variant='standard'
-                  onChange={onChangeEmail}
-                  type={'email'}
-                  name='user_email'
-                  autoComplete='off'
-                />
-                <TextareaAutosize
-                  defaultValue={details}
-                  onChange={onChangeDetails}
-                  minRows={4}
-                  aria-label='maximum height'
-                  style={{
-                    backgroundColor: COLORS.lightBrown,
-                    width: '100%',
-                    borderWidth: 0.5,
-                    borderColor: COLORS.darkBrown,
-                    fontFamily: 'Roboto',
-                    fontSize: 16,
-                  }}
-                  name='user_message'
-                />
-                <div style={{ display: 'flex', width: '100%', marginTop: 16 }}>
-                  <Button
-                    variant='contained'
-                    size='medium'
-                    type='button'
-                    sx={{
-                      'backgroundColor': COLORS.darkBrown,
-                      'justify-content': 'center',
-                      'flex': 1,
-                      'padding': 2,
-                      'align-items': 'start',
-                      'font-weight': 'bold',
-                      'font-family': 'Open Sans',
-                      '&: hover': {
-                        backgroundColor: COLORS.textColor,
-                      },
+              {isLoading ? (
+                <Components.Wrapper>
+                  <CircularIndeterminate />
+                </Components.Wrapper>
+              ) : (
+                <form>
+                  <TextField
+                    error={showNameErr}
+                    id='standard-error-helper-text'
+                    label={isRo ? 'Nume și prenume' : 'Name'}
+                    defaultValue={name}
+                    helperText={nameErrMessage}
+                    variant='standard'
+                    type={'text'}
+                    name='user_name'
+                    onChange={onChangeName}
+                  />
+                  <TextField
+                    error={showPhoneErr}
+                    id='standard-error-helper-text'
+                    label={isRo ? 'Telefon' : 'Phone number'}
+                    defaultValue={phoneNumber}
+                    helperText={phoneErrMessage}
+                    variant='standard'
+                    onChange={onChangePhone}
+                    name='user_phone'
+                  />
+                  <TextField
+                    error={showEmailErr}
+                    id='standard-error-helper-text'
+                    label='Email'
+                    defaultValue={email}
+                    helperText={emailErrMessage}
+                    variant='standard'
+                    onChange={onChangeEmail}
+                    type={'email'}
+                    name='user_email'
+                  />
+                  <TextareaAutosize
+                    defaultValue={details}
+                    onChange={onChangeDetails}
+                    minRows={4}
+                    aria-label='maximum height'
+                    style={{
+                      backgroundColor: COLORS.lightBrown,
+                      width: '100%',
+                      borderWidth: 0.5,
+                      borderColor: COLORS.darkBrown,
+                      fontFamily: 'Roboto',
+                      fontSize: 16,
                     }}
-                    onClick={onHandleSubmit}>
-                    {isRo ? 'Trimite' : 'Submit'}
-                  </Button>
-                </div>
-              </form>
+                    name='user_message'
+                  />
+                  <div style={{ display: 'flex', width: '100%', marginTop: 16 }}>
+                    <Button
+                      variant='contained'
+                      size='medium'
+                      type='button'
+                      sx={{
+                        'backgroundColor': COLORS.darkBrown,
+                        'justify-content': 'center',
+                        'flex': 1,
+                        'padding': 2,
+                        'align-items': 'start',
+                        'font-weight': 'bold',
+                        'font-family': 'Open Sans',
+                        '&: hover': {
+                          backgroundColor: COLORS.textColor,
+                        },
+                      }}
+                      onClick={onHandleSubmit}>
+                      {isRo ? 'Trimite' : 'Submit'}
+                    </Button>
+                  </div>
+                </form>
+              )}
             </Box>
           </Components.ContactForm>
         )}

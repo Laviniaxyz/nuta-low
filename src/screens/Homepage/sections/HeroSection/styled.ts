@@ -39,6 +39,13 @@ export const Components = {
     object-fit: cover;
     background-color: #232a34;
   `,
+  ImageBg: styled.img`
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-color: #232a34;
+  `,
   HeroContent: styled.div`
     z-index: 3;
     max-width: 1200px;

@@ -70,15 +70,12 @@ export const Components = {
   `,
   MenuWithFlag: styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
   `,
   Flag: styled.div`
     margin-left: 4px;
-    align-self: flex-end;
-    align-items: center;
     cursor: pointer;
-    margin-bottom: 0px;
-    @media screen and (max-width: 700px) {
-      margin-bottom: 2px;
-    }
+    height: 100%;
   `,
 };

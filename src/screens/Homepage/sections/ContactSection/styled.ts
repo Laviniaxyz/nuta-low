@@ -29,10 +29,15 @@ export const Components = {
     flex-direction: column;
   `,
   EmailWrapper: styled.div``,
-  Text: styled.div`
+  Text: styled.a`
     text-align: center;
     font-size: 22px;
     font-family: Open Sans;
+    cursor: pointer;
+  `,
+  TextHref: styled.a`
+    text-decoration: none;
+    color: ${COLORS.blueishBlack};
     cursor: pointer;
   `,
 
@@ -105,5 +110,10 @@ export const Components = {
     justify-content: center;
     align-items: center;
     padding: 32px 16px;
+  `,
+  Wrapper: styled.div`
+    display: flex;
+    justify-content: center;
+    align-self: center;
   `,
 };

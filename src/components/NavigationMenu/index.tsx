@@ -30,8 +30,12 @@ const NavigationMenu = () => {
         <GavelOutlinedIcon />
       </Components.LogoContainer>
       <Components.MenuWithFlag>
-        <Components.Flag onClick={onClickUSFlag}>🇺🇸</Components.Flag>
-        <Components.Flag onClick={onClickRomanianFlag}>🇷🇴</Components.Flag>
+        {!showMobileMenu ? (
+          <>
+            <Components.Flag onClick={onClickUSFlag}>🇺🇸</Components.Flag>
+            <Components.Flag onClick={onClickRomanianFlag}>🇷🇴</Components.Flag>
+          </>
+        ) : null}
         <Components.MenuContainer>
           <Components.MenuItem to='about' smooth={true} duration={500} spy={true} offset={-80} activeClass='active'>
             {isRo ? 'Despre' : 'About'}
