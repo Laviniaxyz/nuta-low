@@ -30,6 +30,7 @@ export const Components = {
       flex-direction: column;
     }
   `,
+
   WebsiteRights: styled.h5`
     color: ${COLORS.whiteBeige};
     font-size: 14px;

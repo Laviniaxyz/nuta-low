@@ -11,6 +11,7 @@ import MarkEmailReadOutlinedIcon from '@mui/icons-material/MarkEmailReadOutlined
 import { SiteLanguageContext } from '../../../../providers/siteLanguage/context';
 import emailjs from '@emailjs/browser';
 import CircularIndeterminate from '../../../../components/CircularIndeterminate';
+import { serviceID, templateId } from '../../../../env';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const image = require('../../../../assets/BooksImage.png');
@@ -115,20 +116,22 @@ const ContactSection = () => {
       setIsLoading(true);
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      emailjs
-        .send('service_uvo934r', 'template_numb9h8', { name, phoneNumber, email, details }, 'fKQevxMbzGmNtuRK7')
-        .then(
-          (result) => {
-            setShowSuccessSend(true);
-            setIsLoading(false);
-          },
-          (error) => {
-            console.log(error.text);
-            setShowAPIErr(true);
-            setIsLoading(false);
-          },
-        );
+      emailjs.send(serviceID, templateId, { name, phoneNumber, email, details }, '3K30gX_OeIrz68qOC').then(
+        (result) => {
+          setShowSuccessSend(true);
+          setIsLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setShowAPIErr(true);
+          setIsLoading(false);
+        },
+      );
     }
+  };
+
+  const redirectToCalendly = () => {
+    window.location.href = 'https://calendly.com/office-89ix/consultanta';
   };
 
   return (
@@ -140,21 +143,21 @@ const ContactSection = () => {
             <Components.CTAText>
               {isRo ? 'Ai nevoie de un partener de încredere' : 'Looking for a reliable partner'}?
             </Components.CTAText>
-            <Components.CTAText>{isRo ? 'Contactează-ne' : 'Contact us'}!</Components.CTAText>
+            <Components.CTACalendly onClick={redirectToCalendly}>{isRo ? 'Programează o întâlnire' : 'Schedule an appointment'}</Components.CTACalendly>
           </Components.CTAWrapper>
           <>
             <Components.TextWrapper>
               <PhoneInTalkIcon />
               <Components.Text>
-                <Components.TextHref href='tel:+40722697542'> +40722697542</Components.TextHref>
+                <Components.TextHref href='tel:+40783109488'> +40783109488</Components.TextHref>
               </Components.Text>
             </Components.TextWrapper>
-            <Components.TextWrapper>
-              <MailIcon />
-              <Components.Text onClick={() => window.open('mailto:alexandru.nuta@gmail.com')}>
-                alexandru.nuta@gmail.com
-              </Components.Text>
-            </Components.TextWrapper>
+            {/*<Components.TextWrapper>*/}
+            {/*  <MailIcon />*/}
+            {/*  <Components.Text onClick={() => window.open('mailto:office@nutasiasociatii.ro')}>*/}
+            {/*    office@nutasiasociatii.ro*/}
+            {/*  </Components.Text>*/}
+            {/*</Components.TextWrapper>*/}
           </>
         </Components.ContactMessage>
         {showSuccessSend ? (
@@ -174,98 +177,101 @@ const ContactSection = () => {
             <MarkEmailReadOutlinedIcon font-size={'large'} style={{ color: COLORS.textColor }} />
           </Components.MessageWrapper>
         ) : (
-          <Components.ContactForm>
-            <Box
-              component='form'
-              sx={{
-                '& .MuiTextField-root': {
-                  display: 'flex',
-                  flexDirection: 'column',
-                  flex: 1,
-                  width: '100%',
-                  alignItem: 'flex-start',
-                  marginBottom: 2,
-                },
-              }}
-              noValidate>
-              {isLoading ? (
-                <Components.Wrapper>
-                  <CircularIndeterminate />
-                </Components.Wrapper>
-              ) : (
-                <form>
-                  <TextField
-                    error={showNameErr}
-                    id='standard-error-helper-text'
-                    label={isRo ? 'Nume și prenume' : 'Name'}
-                    defaultValue={name}
-                    helperText={nameErrMessage}
-                    variant='standard'
-                    type={'text'}
-                    name='user_name'
-                    onChange={onChangeName}
-                  />
-                  <TextField
-                    error={showPhoneErr}
-                    id='standard-error-helper-text'
-                    label={isRo ? 'Telefon' : 'Phone number'}
-                    defaultValue={phoneNumber}
-                    helperText={phoneErrMessage}
-                    variant='standard'
-                    onChange={onChangePhone}
-                    name='user_phone'
-                  />
-                  <TextField
-                    error={showEmailErr}
-                    id='standard-error-helper-text'
-                    label='Email'
-                    defaultValue={email}
-                    helperText={emailErrMessage}
-                    variant='standard'
-                    onChange={onChangeEmail}
-                    type={'email'}
-                    name='user_email'
-                  />
-                  <TextareaAutosize
-                    defaultValue={details}
-                    onChange={onChangeDetails}
-                    minRows={4}
-                    aria-label='maximum height'
-                    style={{
-                      backgroundColor: COLORS.lightBrown,
-                      width: '100%',
-                      borderWidth: 0.5,
-                      borderColor: COLORS.darkBrown,
-                      fontFamily: 'Roboto',
-                      fontSize: 16,
-                    }}
-                    name='user_message'
-                  />
-                  <div style={{ display: 'flex', width: '100%', marginTop: 16 }}>
-                    <Button
-                      variant='contained'
-                      size='medium'
-                      type='button'
-                      sx={{
-                        'backgroundColor': COLORS.darkBrown,
-                        'justify-content': 'center',
-                        'flex': 1,
-                        'padding': 2,
-                        'align-items': 'start',
-                        'font-weight': 'bold',
-                        'font-family': 'Open Sans',
-                        '&: hover': {
-                          backgroundColor: COLORS.textColor,
-                        },
+            <Components.ContactWrapper>
+              <Components.FormCTA>{isRo? 'Completează formularul și te vom contacta în maximum 48 de ore': 'Fill out the form and we will contact you within 48 hours'}</Components.FormCTA>
+            <Components.ContactForm>
+              <Box
+                component='form'
+                sx={{
+                  '& .MuiTextField-root': {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1,
+                    width: '100%',
+                    alignItem: 'flex-start',
+                    marginBottom: 2,
+                  },
+                }}
+                noValidate>
+                {isLoading ? (
+                  <Components.Wrapper>
+                    <CircularIndeterminate />
+                  </Components.Wrapper>
+                ) : (
+                  <form>
+                    <TextField
+                      error={showNameErr}
+                      id='standard-error-helper-text'
+                      label={isRo ? 'Nume și prenume' : 'Name'}
+                      defaultValue={name}
+                      helperText={nameErrMessage}
+                      variant='standard'
+                      type={'text'}
+                      name='user_name'
+                      onChange={onChangeName}
+                    />
+                    <TextField
+                      error={showPhoneErr}
+                      id='standard-error-helper-text'
+                      label={isRo ? 'Telefon' : 'Phone number'}
+                      defaultValue={phoneNumber}
+                      helperText={phoneErrMessage}
+                      variant='standard'
+                      onChange={onChangePhone}
+                      name='user_phone'
+                    />
+                    <TextField
+                      error={showEmailErr}
+                      id='standard-error-helper-text'
+                      label='Email'
+                      defaultValue={email}
+                      helperText={emailErrMessage}
+                      variant='standard'
+                      onChange={onChangeEmail}
+                      type={'email'}
+                      name='user_email'
+                    />
+                    <TextareaAutosize
+                      defaultValue={details}
+                      onChange={onChangeDetails}
+                      minRows={4}
+                      aria-label='maximum height'
+                      style={{
+                        backgroundColor: COLORS.lightBrown,
+                        width: '100%',
+                        borderWidth: 0.5,
+                        borderColor: COLORS.darkBrown,
+                        fontFamily: 'Roboto',
+                        fontSize: 16,
                       }}
-                      onClick={onHandleSubmit}>
-                      {isRo ? 'Trimite' : 'Submit'}
-                    </Button>
-                  </div>
-                </form>
-              )}
-            </Box>
-          </Components.ContactForm>
+                      name='user_message'
+                    />
+                    <div style={{ display: 'flex', width: '100%', marginTop: 32 }}>
+                      <Button
+                        variant='contained'
+                        size='medium'
+                        type='button'
+                        sx={{
+                          'backgroundColor': COLORS.darkBrown,
+                          'justify-content': 'center',
+                          'flex': 1,
+                          'padding': 2,
+                          'align-items': 'start',
+                          'font-weight': 'bold',
+                          'font-family': 'Open Sans',
+                          '&: hover': {
+                            backgroundColor: COLORS.textColor,
+                          },
+                        }}
+                        onClick={onHandleSubmit}>
+                        {isRo ? 'Trimite' : 'Submit'}
+                      </Button>
+                    </div>
+                  </form>
+                )}
+              </Box>
+            </Components.ContactForm>
+            </Components.ContactWrapper>
         )}
       </Components.Container>
     </>

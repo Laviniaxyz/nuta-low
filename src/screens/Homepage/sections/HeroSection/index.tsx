@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 import { COLORS } from '../../../../styled';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import { SiteLanguageContext } from '../../../../providers/siteLanguage/context';
+import { WindowSizeContext } from '../../../../providers/windowSize/context';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const video = require('../../../../assets//video/video-lawyer.mp4');
@@ -11,26 +12,9 @@ const video = require('../../../../assets//video/video-lawyer.mp4');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const image = require('../../../../assets/HeroImageLawyer.png');
 
-const getWindowSize = () => {
-  const { innerWidth, innerHeight } = window;
-  return { innerWidth, innerHeight };
-};
-
 const HeroSection = () => {
   const { isRo } = useContext(SiteLanguageContext);
-  const [windowSize, setWindowSize] = useState(getWindowSize());
-
-  useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
+  const { windowSize } = useContext(WindowSizeContext);
 
   return (
     <Components.HeroSectionContainer>

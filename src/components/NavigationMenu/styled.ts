@@ -9,7 +9,15 @@ export const Components = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
+    padding: 16px 64px;
+
+    @media screen and (max-width: 800px) {
+      padding: 16px 32px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding: 16px;
+    }
   `,
   LogoContainer: styled.div`
     display: flex;
@@ -43,6 +51,16 @@ export const Components = {
       display: none;
     }
   `,
+  MenuButton: styled.div`
+    margin-left: 12px;
+    cursor: pointer;
+    :hover {
+      border-bottom: 0.5px solid ${COLORS.whiteBeige};
+    }
+    @media screen and (max-width: 700px) {
+      display: none;
+    }
+  `,
   MobileMenuWrapper: styled.div`
     display: none;
     @media screen and (max-width: 700px) {
@@ -64,6 +82,12 @@ export const Components = {
       border-bottom: 0.5px solid ${COLORS.whiteBeige};
     }
   `,
+  MobileMenuButton: styled.div`
+    cursor: pointer;
+    :hover {
+      border-bottom: 0.5px solid ${COLORS.whiteBeige};
+    }
+  `,
   MenuIconWrapper: styled.div`
     cursor: pointer;
     margin-left: 12px;
@@ -77,5 +101,9 @@ export const Components = {
     margin-left: 4px;
     cursor: pointer;
     height: 100%;
+  `,
+  Logo: styled.img`
+    width: 32px;
+    height: 32px;
   `,
 };

@@ -12,11 +12,11 @@ const FooterSection = () => {
         <Components.SocialMedia>
           <Components.SocialMediaWrap>
             <Components.WebsiteRights>
-              Alexandru Nuță © {new Date().getFullYear()} All rights reserved
+              Alexandru Nuță © {new Date().getFullYear()}  | office@nutasiasociatii.ro
             </Components.WebsiteRights>
             <Components.SocialIcons>
               <Components.SocialIconLink
-                href='https://www.facebook.com/alexandru.nuta.9'
+                href='https://www.facebook.com/profile.php?id=100090135618439&mibextid=ZbWKwL'
                 target='_blank'
                 aria-label='Facebook'>
                 <FacebookIcon />
@@ -27,14 +27,14 @@ const FooterSection = () => {
                 aria-label='Instagram'>
                 <LinkedInIcon />
               </Components.SocialIconLink>
-              <Components.SocialIconLink href='tel:+40722697542' target='_blank' aria-label='Twitter'>
+              <Components.SocialIconLink href='tel:+40783109488' target='_blank' aria-label='Twitter'>
                 <PhoneIcon />
               </Components.SocialIconLink>
               <Components.SocialIconLink
                 href='/'
                 target='_blank'
                 aria-label='LinkedinIn'
-                onClick={() => window.open('mailto:alexandru.nuta@gmail.com')}>
+                onClick={() => window.open('mailto:office@nutasiasociatii.ro')}>
                 <EmailIcon />
               </Components.SocialIconLink>
             </Components.SocialIcons>

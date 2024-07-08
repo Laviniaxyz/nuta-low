@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import NavigationMenu from '../../components/NavigationMenu';
 import HeroSection from './sections/HeroSection';
 import ServicesSection from './sections/ServicesSection';
@@ -7,7 +7,7 @@ import AboutSection from './sections/AboutSection';
 import ContactSection from './sections/ContactSection';
 import QuoteSection from './sections/QuoteSection';
 import MainServicesSection from './sections/MainServicesSection';
-import WhyWorkWithUs from './sections/WhyWorkWithUs';
+import WhyWorkWithUs from './sections/OurPrinciples';
 
 const Homepage = () => {
   return (

@@ -21,13 +21,21 @@ export const Components = {
     opacity: 0.9;
     position: relative;
   `,
-  ContactForm: styled.div`
+  ContactWrapper: styled.div`
     display: flex;
     flex: 1;
-    margin: 32px;
+    margin: 16px 32px 32px 32px;
     justify-content: center;
     flex-direction: column;
+    padding: 16px 32px;
+
+    @media screen and (max-width: 500px) {
+      padding: 8px;
+    }
   `,
+  ContactForm: styled.div`
+  `,
+
   EmailWrapper: styled.div``,
   Text: styled.a`
     text-align: center;
@@ -63,6 +71,24 @@ export const Components = {
     text-align: center;
     font-size: 24px;
     font-family: Open Sans;
+  `,
+  FormCTA: styled.div`
+    text-align: center;
+    font-size: 24px;
+    font-family: Open Sans;
+    margin: 0px 16px 32px 16px;
+
+    @media screen and (max-width: 800px) {
+      margin: 0px 8px 32px 8px;
+
+    }
+  `,
+  CTACalendly: styled.div`
+    text-align: center;
+    font-size: 24px;
+    font-family: Open Sans;
+    cursor: pointer;
+    text-decoration: underline;
   `,
 
   TextArea: styled.textarea`
@@ -109,7 +135,7 @@ export const Components = {
     flex: 1;
     justify-content: center;
     align-items: center;
-    padding: 32px 16px;
+    padding: 32px;
   `,
   Wrapper: styled.div`
     display: flex;

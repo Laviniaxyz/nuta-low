@@ -31,12 +31,16 @@ const DetailsModal = ({
       }}>
       <Fade in={open}>
         <Components.Box onClick={toggleModal}>
-          <Typography id='transition-modal-title' variant='h6' component='h2'>
+          <Typography id='transition-modal-title' variant='h6' component='h2' style={{ marginTop: 12 }}>
             {title}
           </Typography>
           <Typography id='transition-modal-description' sx={{ mt: 2 }}>
             {bullets.map((bullet, index) => {
-              return <Components.Paragraph key={index}>{bullet}</Components.Paragraph>;
+              return (
+                <Components.Paragraph key={index} isLast={index === bullets.length - 1}>
+                  {bullet}
+                </Components.Paragraph>
+              );
             })}
           </Typography>
         </Components.Box>

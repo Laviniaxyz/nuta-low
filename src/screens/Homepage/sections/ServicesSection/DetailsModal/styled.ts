@@ -14,21 +14,30 @@ export const style = {
 };
 export const Components = {
   Box: styled(Box)`
+    padding: 24px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: ${COLORS.whiteBeige};
     border-radius: 2px;
-    padding: 24px;
     width: 90vw;
     overflow-y: auto;
     flex-grow: 1;
-    max-height: 700px;
+    max-height: 100%;
+
+    @media screen and (max-width: 800px) {
+      top: 50%;
+    }
   `,
-  Paragraph: styled.li`
+  Paragraph: styled.li<{ isLast?: boolean }>`
     line-height: 1.5;
     font-size: 18px;
     font-family: 'Roboto';
+    margin-bottom: ${(p) => (p.isLast ? 12 : 4)}px;
+
+    @media screen and (max-width: 500px) {
+      margin-bottom: ${(p) => (p.isLast ? 18 : 4)}px;
+    }
   `,
 };

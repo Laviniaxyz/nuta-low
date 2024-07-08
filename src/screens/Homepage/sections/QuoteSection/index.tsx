@@ -9,14 +9,13 @@ const QuoteSection = () => {
   return (
     <Components.Container>
       <Components.QuoteBox>
-        {/*<Components.QuoteTitle>Principiile noastre</Components.QuoteTitle>*/}
         <FormatQuoteIcon style={{ color: COLORS.white }} fontSize={'large'} />
         {isRo ? (
           <Components.Quote>
-            În desfășurarea activității de zi cu zi de ghidăm după un set de principii ferme, menite să diferențieze
-            între un avocat de succes de restul avocaților. Seriozitatea, punctualitatea, integritatea, perseverența,
-            tenacitatea și onestitatea sunt doar câteva dintre caracteristicile muncii noastre care ne-au adus o
-            reputație impecabilă în fața clienților.
+            În desfășurarea activității de zi cu zi ne ghidăm după un set de principii ferme menite să diferențieze un
+            avocat de succes de restul avocaților. Seriozitatea, punctualitatea, integritatea, perseverența, tenacitatea
+            și onestitatea sunt doar câteva din caracteristicile muncii noastre care ne-au adus o reputație impecabila
+            în fața clienților.
           </Components.Quote>
         ) : (
           <Components.Quote>
